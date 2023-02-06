@@ -88,7 +88,8 @@ sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \
 \"$PRUNING_INTERVAL\"/" $HOME/.humans/config/app.toml
 
-sudo tee </dev/null /etc/systemd/system/humansd.service
+#create service
+sudo tee /etc/systemd/system/humansd.service > /dev/null <<EOF
 [Unit]
 Description=humansd Humans daemon
 After=network-online.target
